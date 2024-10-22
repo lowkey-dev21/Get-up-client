@@ -1,10 +1,49 @@
-import body from "../assets/body.png";
+import {
+  body,
+  burpees,
+  lifting,
+  pushup,
+  running,
+  squats,
+  yoga,
+} from "../assets";
 
+interface Exercise {
+  title: string;
+  img: string;
+}
+
+const exercises: Exercise[] = [
+  {
+    title: "Squats",
+    img: squats,
+  },
+  {
+    title: "Burpees",
+    img: burpees,
+  },
+  {
+    title: "Yoga",
+    img: yoga,
+  },
+  {
+    title: "Running",
+    img: running,
+  },
+  {
+    title: "Lifting",
+    img: lifting,
+  },
+  {
+    title: "PushUp",
+    img: pushup,
+  },
+];
 const Hero = () => {
   return (
     <>
       <section
-        className={`h-64 w-full bg-gradient-to-r from-[#25AD35] to-[#25AD35]`}
+        className={`h-64  w-full bg-gradient-to-r from-[#25AD35] to-[#25AD35]`}
       >
         <div className="inset-0 md:px-[5rem] px-[20px] mt-[-1rem] flex p-2">
           {/* Update badge */}
@@ -43,8 +82,8 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="mt-4 md:mt-[4rem] z-[500] text-[13px] flex md:w-[30%] w-full gap-[3rem]">
-            <button className="bg-white rounded-lg text-black p-2 md:p-5 w-full">
+          <div className="mt-5 md:mt-[4rem] md:text-xl z-[500] text-[13px] flex md:w-[30%] w-full gap-[3rem]">
+            <button className="bg-white rounded-lg text-black p-4 md:p-5 w-full">
               Get Started
             </button>
             <button className="z-[9000] bg-black rounded-lg text-white md:p-5  p-2 w-full">
@@ -61,7 +100,60 @@ const Hero = () => {
         />
 
         {/* Popular exercise */}
-        <div className="relative md:mt-[43rem] mt-[23rem] flex bg-[#2827274a] backdrop-opacity-30 w-full h-[1000px]"></div>
+        <div className=" md:px-[5rem] px-[20px]  relative md:mt-[43rem] mt-[23.5rem] bg-[#2827274a] backdrop-opacity-30 w-full h-[2070px] md:h-[800px]   ">
+          <nav className=" w-full pt-4 justify-between items-center flex  ">
+            <p className=" md:text-[29px] text-[17px]">Popular Exercises</p>
+            <button className=" text-[#FFFFFF] bg-black p-5 text-[15px] md:flex hidden">
+              SEE MORE
+            </button>
+          </nav>
+
+          <div className="mt-5 grid grid-cols-1 md:grid-cols-3 gap-5">
+            {exercises.map((exe) => (
+              <>
+                <div>
+                  <div
+                    style={{
+                      backgroundImage: `linear-gradient(to top, #000000aa, #89888700, #89888700 ), url(${exe.img})`,
+                    }}
+                    className="bg-cover items-end flex rounded-lg bg-center h-64 w-full"
+                  ></div>
+                  <div className="font-[600] text-[40px] mt-[-2rem] ml-5 flex">
+                    {exe.title}
+                  </div>
+                  <p className="font-light ml-5 text-xs">250 est calories</p>
+                </div>
+              </>
+            ))}
+
+            <div className=" w-full flex justify-end ">
+              <button className=" text-[#FFFFFF] items-center justify-center  bg-black p-5 text-[13px] md:hidden flex w-[120px] h-[50px] ">
+                SEE MORE
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Transform */}
+        <div className=" md:px-[5rem]   w-full flex flex-col md:flex md:h-[400px] h-[600px] justify-center md:justify-between md:flex-row  items-center ">
+          <div className="  px-[20px] md:w-[50%] flex h-[400px] items-center  ">
+            <p className=" text-5xl md:text-[450%] md:leading-[90%] font-semibold  ">
+              Get your plan and get started
+            </p>
+          </div>
+
+          <div className=" bg-[#ffffff4c] w-full md:w-[50%] flex items-center flex-col justify-center backdrop-opacity-30 md:h-[300px] h-[400px] ">
+            <p className=" md:px-[5rem] px-[20px] md:text-2xl font-light text-black  ">
+              Transform your fitness journey with our app! Personalized
+              workouts, real-time tracking, and expert guidance—all in one
+              place. Join our community and start getting stronger today!
+
+              <button className=" bg-black text-white p-2 px-5 rounded-md mt-5" >
+                Let's start
+              </button>
+            </p>
+          </div>
+        </div>
       </section>
     </>
   );

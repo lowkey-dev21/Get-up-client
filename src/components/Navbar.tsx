@@ -38,7 +38,9 @@ const Navbar = () => {
           {navLinks.map((nav) => (
             <>
               <NavLink
-                className={"hover:bg-black p-[5px] px-4 hover:font-normal rounded-full"}
+                className={
+                  "hover:bg-black p-[5px] px-4 hover:font-normal rounded-full"
+                }
                 end
                 to={""}
                 key={nav.title}

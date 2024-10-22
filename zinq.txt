@@ -1,0 +1,9 @@
+   {/* new update */}
+        <div className=" flex h-[40px] p-2 bg-[#2827274a] backdrop:opacity-3  items-center justify-center gap-2 rounded-full ">
+          <span className="  bg-white text-black p-1 rounded-full px-3 ">
+            NEW
+          </span>
+          <span className=" font-light">
+            High Intensity workout to burn calories
+          </span>
+        </div>

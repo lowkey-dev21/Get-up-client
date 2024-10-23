@@ -9,6 +9,7 @@ import {
   getyour,
   lastImg,
 } from "../assets";
+import Footer from "./Footer";
 import Trainers from "./Trainers";
 
 interface Exercise {
@@ -107,7 +108,7 @@ const Hero = () => {
         <img
           src={lastImg}
           alt="cardio workout"
-          className="absolute inset-0 md:mt-[30rem]  md:w-[1500px]  md:ml-[-6rem] mt-[196.6rem]  pb-5 mix-blend-overlay"
+          className="absolute inset-0 md:mt-[55rem]  md:w-[1200px]  md:ml-[-6rem] mt-[202.6rem]  pb-5 mix-blend-overlay"
         />
 
         {/* Popular exercise */}
@@ -168,7 +169,13 @@ const Hero = () => {
 
         {/* Trainers */}
         <section className=" md:px-[5rem] px-[20px] bg-black  ">
+          <p className=" text-center pt-4 text-2xl font-semibold"> Trainers</p>
           <Trainers />
+        </section>
+
+        {/* Footer */}
+        <section className=" md:px-[5rem] px-[20px] ">
+          <Footer />
         </section>
       </section>
     </>

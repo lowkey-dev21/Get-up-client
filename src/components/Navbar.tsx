@@ -19,7 +19,7 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   return (
     <>
-      <nav className=" z-[1000] fixed flex md:px-[5rem] px-[20px]  md:py-[2.5rem] w-full bg-[#25AD35]   justify-between items-center h-[50px] md:h-[50px] ">
+      <nav className=" z-[5000] fixed flex md:px-[5rem] px-[20px]  md:py-[2.5rem] w-full bg-[#25AD35]   justify-between items-center h-[50px] md:h-[50px] ">
         {/* Logo */}
         <div className=" md:text-2xl  text-[18px] font-semibold">
           <span>Get</span> <span className="text-black ">Up</span>

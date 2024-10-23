@@ -5,3 +5,8 @@ export { default as running } from "../assets/running.png";
 export { default as squats } from "../assets/squats.png";
 export { default as yoga } from "../assets/yoga.png";
 export { default as body } from "../assets/body.png";
+export { default as getyour } from "../assets/getyour.png";
+export { default as trainer1 } from "../assets/trainer1.png";
+export { default as trainer2 } from "../assets/trainer2.png";
+export { default as trainer3 } from "../assets/trainer3.png";
+export { default as lastImg } from "../assets/lastImg.jpeg";

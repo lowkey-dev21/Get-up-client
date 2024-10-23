@@ -6,7 +6,10 @@ import {
   running,
   squats,
   yoga,
+  getyour,
+  lastImg,
 } from "../assets";
+import Trainers from "./Trainers";
 
 interface Exercise {
   title: string;
@@ -39,6 +42,7 @@ const exercises: Exercise[] = [
     img: pushup,
   },
 ];
+
 const Hero = () => {
   return (
     <>
@@ -48,7 +52,7 @@ const Hero = () => {
         <div className="inset-0 md:px-[5rem] px-[20px] mt-[-1rem] flex p-2">
           {/* Update badge */}
           <div className="flex h-[40px] p-1 pl-1.5 pr-5 bg-[#2827274a] backdrop-opacity-30 items-center justify-center gap-2 rounded-full">
-            <span className="bg-white text-black p-1 text-[12px] rounded-full px-3">
+            <span className="bg-white text-black p-1 md:px-2 text-[12px] rounded-full ">
               NEW
             </span>
             <span className="font-light text-[13px]">
@@ -99,6 +103,13 @@ const Hero = () => {
           className="absolute inset-0 md:mt-[7rem] md:ml-[-6rem] mt-[15.6rem] mix-blend-overlay"
         />
 
+        {/* Image Background */}
+        <img
+          src={lastImg}
+          alt="cardio workout"
+          className="absolute inset-0 md:mt-[30rem]  md:w-[1500px]  md:ml-[-6rem] mt-[196.6rem]  pb-5 mix-blend-overlay"
+        />
+
         {/* Popular exercise */}
         <div className=" md:px-[5rem] px-[20px]  relative md:mt-[43rem] mt-[23.5rem] bg-[#2827274a] backdrop-opacity-30 w-full h-[2070px] md:h-[800px]   ">
           <nav className=" w-full pt-4 justify-between items-center flex  ">
@@ -135,11 +146,12 @@ const Hero = () => {
         </div>
 
         {/* Transform */}
-        <div className=" md:px-[5rem]   w-full flex flex-col md:flex md:h-[400px] h-[600px] justify-center md:justify-between md:flex-row  items-center ">
-          <div className="  px-[20px] md:w-[50%] flex h-[400px] items-center  ">
-            <p className=" text-5xl md:text-[450%] md:leading-[90%] font-semibold  ">
+        <div className=" md:px-[5rem]    w-full flex flex-col md:flex md:h-[400px] h-[600px] justify-center md:justify-between md:flex-row  items-center ">
+          <div className=" flex-col  justify-center   px-[20px] md:w-[50%] flex h-[400px] items-center  ">
+            <p className=" text-5xl z-[2] md:text-[450%] md:leading-[90%] font-semibold  ">
               Get your plan and get started
             </p>
+            <img className=" mt-[-4rem]" src={getyour} alt="" />
           </div>
 
           <div className=" bg-[#ffffff4c] w-full md:w-[50%] flex items-center flex-col justify-center backdrop-opacity-30 md:h-[300px] h-[400px] ">
@@ -147,13 +159,17 @@ const Hero = () => {
               Transform your fitness journey with our app! Personalized
               workouts, real-time tracking, and expert guidance—all in one
               place. Join our community and start getting stronger today!
-
-              <button className=" bg-black text-white p-2 px-5 rounded-md mt-5" >
+              <button className=" bg-black text-white p-2 px-5 rounded-md mt-5">
                 Let's start
               </button>
             </p>
           </div>
         </div>
+
+        {/* Trainers */}
+        <section className=" md:px-[5rem] px-[20px] bg-black  ">
+          <Trainers />
+        </section>
       </section>
     </>
   );

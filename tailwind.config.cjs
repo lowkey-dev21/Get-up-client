@@ -19,13 +19,12 @@ module.exports = {
       },
     },
     screens: {
-      xs: "480px",
-      ss: "620px",
-      sm: "768px",
-      md: "1060px",
-      lg: "1200px",
-      xl: "1440px", // Adjusted for common larger screen resolutions
-      "2xl": "1700px",
+      xs: "480px", // Smartphones
+      sm: "640px", // Smaller devices (iPhone 5/SE)
+      md: "768px", // Tablets
+      lg: "1024px", // Small laptops
+      xl: "1280px", // Large laptops and desktops
+      "2xl": "1536px", // Extra large screens
     },
   },
   plugins: [

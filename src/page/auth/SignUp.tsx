@@ -17,18 +17,18 @@ const SignUp = () => {
 
   return (
     <>
-      {/* mobile */}
+      {/* Mobile */}
       <section className={`sm:hidden w-full flex`}>
         {/* Image Background */}
         <img
           src={signUp}
           alt="cardio workout"
-          className="fixed h-screen w-full object-cover inset-0 md:mt-[7rem] md:ml-[-6rem] mix-blend-darken z-[1]"
+          className="fixed h-screen w-full object-cover inset-0 mix-blend-darken z-[1]"
         />
 
-        {/* logo / Text Section */}
-        <section className="w-full md:px-[5rem] px-[20px] z-[10] flex-col flex p-2 relative">
-          {/* logo */}
+        {/* Logo / Text Section */}
+        <section className="w-full px-4 md:px-[5rem] z-[10] flex-col flex p-2 relative">
+          {/* Logo */}
           <div
             className={`absolute top-10 left-5 z-10 text-white text-4xl font-semibold transition-opacity duration-500 ease-in-out ${
               showForm ? "opacity-100 animate-fadeIn" : "opacity-0"
@@ -42,7 +42,7 @@ const SignUp = () => {
 
           {/* Sign Up form */}
           <form
-            className={`flex flex-col p-[30px] backdrop-blur-[5px] border bg-[#0000004c] w-full rounded-lg transition-opacity duration-700 ease-in-out ${
+            className={`flex flex-col p-6 backdrop-blur-[5px] border bg-[#0000004c] w-full rounded-lg transition-opacity duration-700 ease-in-out ${
               showForm ? "opacity-100 animate-fadeIn" : "opacity-0"
             }`}
           >
@@ -78,18 +78,18 @@ const SignUp = () => {
             </button>
 
             <button
-              className="font-normal flex items-center justify-center bg-white p-1 mt-4 rounded-md text-black text-x"
+              className="font-normal flex items-center justify-center bg-white p-1 mt-4 rounded-md text-black"
               type="button"
             >
-              <img src={google} className="w-[30px]" alt="" />
+              <img src={google} className="w-[30px]" alt="Google logo" />
               <span className="text-gray-600 font-light">Google</span>
             </button>
 
-            <p className="text-x text-center mt-[30px]">
+            <p className="text-xs text-center mt-[30px]">
               Already have an account?{" "}
               <span
                 onClick={() => navigate("/login")}
-                className=" text-[#25AD35] font-semibold"
+                className="text-[#25AD35] font-semibold cursor-pointer"
               >
                 Login
               </span>
@@ -99,13 +99,13 @@ const SignUp = () => {
       </section>
 
       {/* Desktop */}
-      <div className="sm:flex hidden flex-col md:flex-row h-screen w-full">
+      <div className="hidden sm:flex flex-col md:flex-row h-screen w-full">
         {/* Left side - Image and Branding */}
         <div className="hidden md:flex w-1/2 relative">
           <img
             src={loginImg}
             alt="Workout"
-            className="w-full object-cover h-full mix-blend-darken"
+            className="w-full h-full object-cover mix-blend-darken"
           />
           <div
             className={`absolute top-10 left-10 z-10 text-white text-4xl font-semibold transition-opacity duration-500 ease-in-out ${
@@ -162,10 +162,10 @@ const SignUp = () => {
               </button>
 
               <button
-                className="font-normal flex items-center justify-center bg-white p-1 mt-4 rounded-md text-black text-x"
+                className="font-normal flex items-center justify-center bg-white p-1 mt-4 rounded-md text-black"
                 type="button"
               >
-                <img src={google} className="w-[30px]" alt="" />
+                <img src={google} className="w-[30px]" alt="Google logo" />
                 <span className="text-gray-600 font-light">Google</span>
               </button>
 

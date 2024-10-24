@@ -1,316 +1,185 @@
-import { loginImg } from "../../assets";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import {
+  body,
+  burpees,
+  lifting,
+  pushup,
+  running,
+  squats,
+  yoga,
+  getyour,
+  lastImg,
+} from "../assets";
+import Footer from "./Footer";
+import Trainers from "./Trainers";
 
-const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const navigate = useNavigate();
+interface Exercise {
+  title: string;
+  img: string;
+}
 
+const exercises: Exercise[] = [
+  {
+    title: "Squats",
+    img: squats,
+  },
+  {
+    title: "Burpees",
+    img: burpees,
+  },
+  {
+    title: "Yoga",
+    img: yoga,
+  },
+  {
+    title: "Running",
+    img: running,
+  },
+  {
+    title: "Lifting",
+    img: lifting,
+  },
+  {
+    title: "PushUp",
+    img: pushup,
+  },
+];
+
+const Hero = () => {
   return (
     <>
-      {/* mobile */}
-      <section className={` md:hidden w-full flex `}>
-        {/* Image Background */}
-        <img
-          src={loginImg}
-          alt="cardio workout"
-          className="fixed h-screen w-full object-cover inset-0 md:mt-[7rem] md:ml-[-6rem] mix-blend-darken z-[1]"
-        />
+      <section
+        className={`h-64  w-full bg-gradient-to-r from-[#25AD35] to-[#25AD35]`}
+      >
+        <div className="inset-0 md:px-[5rem] px-[20px] mt-[-1rem] flex p-2">
+          {/* Update badge */}
+          <div className="flex h-[40px] p-1 pl-1.5 pr-5 bg-[#2827274a] backdrop-opacity-30 items-center justify-center gap-2 rounded-full">
+            <span className="bg-white text-black p-1 md:px-2 text-[12px] rounded-full ">
+              NEW
+            </span>
+            <span className="font-light text-[13px]">
+              High Intensity workout to burn calories
+            </span>
+          </div>
+        </div>
 
-        {/* logo / Text Section */}
-        <section className="w-full md:px-[5rem] px-[20px] z-[10] flex-col flex p-2 relative">
-          {/* logo */}
-          <p className="text-3xl font-semibold mt-4">
-            <span>Get </span>
-            <span className=" text-[#25AD35]">Up</span>
-          </p>
-
-          <p className="text-2xl mt-[14rem] mb-5 ">Login</p>
-
-          {/* Login form */}
-          <form className="flex flex-col p-[30px] backdrop-blur-[5px] border   bg-[#0000004c] w-full rounded-lg">
-            <label className="text-white text-[18px]  font-semibold ">
-              Welcome Back
-            </label>
-            {/* Add form elements */}
-
-            <input
-              className=" w-full bg-transparent mt-3 focus:border-[#25AD35] placeholder:text-gray-500 outline-none  border-[1px] p-3 rounded-lg "
-              type="email"
-              placeholder=" Email"
-              onChange={(e) => setEmail(e.target.value)}
-              value={email}
-            />
-
-            <input
-              className=" w-full bg-transparent mt-6 focus:border-[#25AD35] placeholder:text-gray-500 outline-none  border-[1px] p-3 rounded-lg "
-              type="email"
-              placeholder=" Password"
-              onChange={(e) => setPassword(e.target.value)}
-              value={password}
-            />
-
-            <div className=" flex justify-end w-full mt-2 ">
-              <p className=" text-xs">Forgot Password?</p>
+        <div className="md:px-[5rem] px-[20px] absolute md:mt-[15rem] mt-[9rem] inset-0 flex flex-col">
+          <div className="w-full md:flex">
+            <div className="md:w-[80%]">
+              <p className="text-[400%] md:text-[900%] md:leading-[90%] font-semibold leading-[90%] flex flex-col">
+                <span>Cardio</span>
+                <span className="text-black"> Workout</span>
+              </p>
+              <p className="font-light md:text-xl text-xs mt-2">
+                Sweat it out, turn your sweat into strength!
+              </p>
             </div>
 
-            <button
-              className=" bg-[#25AD35] p-2 mt-8 rounded-md text-black text-xl "
-              type="submit"
-            >
-              Login
-            </button>
-
-            <p className=" text-xs text-center mt-6">
-              Don't have an account?{" "}
-              <span
-                onClick={() => navigate("/sign-up")}
-                className=" font-semibold"
-              >
-                Sign Up!
-              </span>
-            </p>
-          </form>
-        </section>
-      </section>
-
-      {/* Desktop */}
-      <div className="sm:flex hidden flex-col md:flex-row h-screen w-full">
-        {/* Left side - Image and Branding */}
-        <div className="hidden md:flex w-1/2 relative">
-          <img
-            src={loginImg}
-            alt="Workout"
-            className="object-cover w-full h-full mix-blend-darken "
-          />
-          <div className="absolute top-10 left-10 z-10 text-white text-4xl font-semibold">
-            <span>Get </span>
-            <span className="text-[#25AD35]">Up</span>
-          </div>
-        </div>
-
-        {/* Right side - Login Form */}
-        <div className="w-full md:w-1/2 flex-col flex justify-center items-center bg-black">
-          <h2 className="text-white text-3xl mb-6">Login</h2>
-          <div className="w-full max-w-md p-8 bg-gray-900 rounded-xl">
-            <h2 className="text-white text-3xl font-semibold mb-6">
-              Welcome Back
-            </h2>
-
-            <form className="flex flex-col space-y-6">
-              {/* Email Input */}
-              <input
-                type="email"
-                placeholder="Email"
-                className="w-full p-4 bg-transparent border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:border-[#25AD35] outline-none"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-
-              {/* Password Input */}
-              <input
-                type="password"
-                placeholder="Password"
-                className="w-full p-4 bg-transparent border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:border-[#25AD35] outline-none"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-
-              <div className="flex justify-between text-sm text-gray-400">
-                <p>Forgot Password?</p>
+            <div className="flex md:flex-col md:justify-normal md:gap-5 gap-[3rem] justify-between md:w-[20%] w-full mt-10">
+              <div className="bg-[#2827274a] rounded-2xl backdrop-opacity-30 p-2 w-[50%] md:w-[150px] md:p-4 flex flex-col items-center justify-center">
+                <span className="text-xl text-[#FB1351]">165</span>
+                <span className="font-light">EST CALORIES</span>
               </div>
 
-              <button
-                type="submit"
-                className="w-full p-3 bg-[#25AD35] text-black rounded-lg font-semibold"
-              >
-                Login
-              </button>
+              <div className="bg-[#2827274a] rounded-2xl backdrop-opacity-30 p-2 w-[50%] md:w-[150px] md:p-4 flex flex-col items-center justify-center">
+                <span className="text-xl text-[#FFE642]">30:00</span>
+                <span className="font-light">TIME</span>
+              </div>
+            </div>
+          </div>
 
-              <p className="text-gray-400 text-center">
-                Don't have an account?{" "}
-                <span
-                  onClick={() => navigate("/sign-up")}
-                  className="font-semibold text-[#25AD35] cursor-pointer"
-                >
-                  Sign up!
-                </span>
-              </p>
-            </form>
+          <div className="mt-5 md:mt-[4rem] md:text-xl z-[500] text-[13px] flex md:w-[30%] w-full gap-[3rem]">
+            <button className="bg-white rounded-lg text-black p-4 md:p-5 w-full">
+              Get Started
+            </button>
+            <button className="z-[9000] bg-black rounded-lg text-white md:p-5  p-2 w-full">
+              Preview
+            </button>
           </div>
         </div>
-      </div>
-    </>
-  );
-};
-export default Login;
 
-
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { signUp, google, loginImg } from "../../assets";
-
-const SignUp = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
-  const navigate = useNavigate();
-
-  return (
-    <>
-      {/* mobile */}
-      <section className={` sm:hidden w-full flex `}>
         {/* Image Background */}
         <img
-          src={signUp}
+          src={body}
           alt="cardio workout"
-          className="fixed h-screen w-full object-cover inset-0 md:mt-[7rem] md:ml-[-6rem] mix-blend-darken z-[1]"
+          className="absolute inset-0 md:mt-[7rem] md:ml-[-6rem] mt-[15.6rem] mix-blend-overlay"
         />
 
-        {/* logo / Text Section */}
-        <section className="w-full md:px-[5rem] px-[20px] z-[10] flex-col flex p-2 relative">
-          {/* logo */}
-          <p className="text-3xl font-semibold mt-4">
-            <span>Get </span>
-            <span className=" text-[#25AD35]">Up</span>
-          </p>
+        {/* Image Background */}
+        <img
+          src={lastImg}
+          alt="cardio workout"
+          className="absolute inset-0 md:mt-[55rem]  md:w-[1200px]  md:ml-[-6rem] mt-[202.6rem]  pb-5 mix-blend-overlay"
+        />
 
-          <p className="text-2xl mt-[12rem] mb-5 ">Sign Up</p>
-
-          {/* Login form */}
-          <form className="flex flex-col p-[30px] backdrop-blur-[5px] border   bg-[#0000004c] w-full rounded-lg">
-            {/* Add form elements */}
-
-            <input
-              className=" w-full bg-transparent mt-3 focus:border-[#25AD35] placeholder:text-gray-500 outline-none  border-[1px] p-3 rounded-lg "
-              type="email"
-              placeholder="Name"
-              onChange={(e) => setName(e.target.value)}
-              value={name}
-            />
-
-            <input
-              className=" w-full bg-transparent mt-6 focus:border-[#25AD35] placeholder:text-gray-500 outline-none  border-[1px] p-3 rounded-lg "
-              type="email"
-              placeholder=" Email"
-              onChange={(e) => setEmail(e.target.value)}
-              value={email}
-            />
-
-            <input
-              className=" w-full bg-transparent mt-6 focus:border-[#25AD35] placeholder:text-gray-500 outline-none  border-[1px] p-3 rounded-lg "
-              type="email"
-              placeholder=" Password"
-              onChange={(e) => setPassword(e.target.value)}
-              value={password}
-            />
-
-            <button
-              className=" bg-[#25AD35] p-2 mt-8 rounded-md text-black text-xl "
-              type="submit"
-            >
-              Sign Up
+        {/* Popular exercise */}
+        <div className=" md:px-[5rem] px-[20px]  relative md:mt-[43rem] mt-[23.5rem] bg-[#2827274a] backdrop-opacity-30 w-full h-[2070px] md:h-[800px]   ">
+          <nav className=" w-full pt-4 justify-between items-center flex  ">
+            <p className=" md:text-[29px] text-[17px]">Popular Exercises</p>
+            <button className=" text-[#FFFFFF] bg-black p-5 text-[15px] md:flex hidden">
+              SEE MORE
             </button>
+          </nav>
 
-            <button
-              className=" font-normal  flex items-center justify-center bg-white p-1 mt-4 rounded-md text-black text-x "
-              type="button"
-            >
-              <img src={google} className=" w-[30px]" alt="" />
-              <span className=" text-gray-600 font-light">Google</span>
-            </button>
+          <div className="mt-5 grid grid-cols-1 md:grid-cols-3 gap-5">
+            {exercises.map((exe) => (
+              <>
+                <div>
+                  <div
+                    style={{
+                      backgroundImage: `linear-gradient(to top, #000000aa, #89888700, #89888700 ), url(${exe.img})`,
+                    }}
+                    className="bg-cover items-end flex rounded-lg bg-center h-64 w-full"
+                  ></div>
+                  <div className="font-[600] text-[40px] mt-[-2rem] ml-5 flex">
+                    {exe.title}
+                  </div>
+                  <p className="font-light ml-5 text-xs">250 est calories</p>
+                </div>
+              </>
+            ))}
 
-            <p className=" text-xs text-center mt-[30px] ">
-              ALready have an account?{" "}
-              <span
-                onClick={() => navigate("/login")}
-                className=" font-semibold"
-              >
-                Login
-              </span>
+            <div className=" w-full flex justify-end ">
+              <button className=" text-[#FFFFFF] items-center justify-center  bg-black p-5 text-[13px] md:hidden flex w-[120px] h-[50px] ">
+                SEE MORE
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Transform */}
+        <div className=" md:px-[5rem]    w-full flex flex-col md:flex md:h-[400px] h-[600px] justify-center md:justify-between md:flex-row  items-center ">
+          <div className=" flex-col  justify-center   px-[20px] md:w-[50%] flex h-[400px] items-center  ">
+            <p className=" text-5xl z-[2] md:text-[450%] md:leading-[90%] font-semibold  ">
+              Get your plan and get started
             </p>
-          </form>
+            <img className=" mt-[-4rem]" src={getyour} alt="" />
+          </div>
+
+          <div className=" bg-[#ffffff4c] w-full md:w-[50%] flex items-center flex-col justify-center backdrop-opacity-30 md:h-[300px] h-[400px] ">
+            <p className=" md:px-[5rem] px-[20px] md:text-2xl font-light text-black  ">
+              Transform your fitness journey with our app! Personalized
+              workouts, real-time tracking, and expert guidance—all in one
+              place. Join our community and start getting stronger today!
+              <button className=" bg-black text-white p-2 px-5 rounded-md mt-5">
+                Let's start
+              </button>
+            </p>
+          </div>
+        </div>
+
+        {/* Trainers */}
+        <section className=" md:px-[5rem] px-[20px] bg-black  ">
+          <p className=" text-center pt-4 text-2xl font-semibold"> Trainers</p>
+          <Trainers />
+        </section>
+
+        {/* Footer */}
+        <section className=" md:px-[5rem] px-[20px] ">
+          <Footer />
         </section>
       </section>
-
-      {/* Desktop */}
-      <div className="sm:flex hidden flex-col md:flex-row h-screen w-full">
-        {/* Left side - Image and Branding */}
-        <div className="hidden md:flex w-1/2 relative">
-          <img
-            src={loginImg}
-            alt="Workout"
-            className="  w-full object-cover  h-full mix-blend-darken "
-          />
-          <div className="absolute top-10 left-10 z-10 text-white text-4xl font-semibold">
-            <span>Get </span>
-            <span className="text-[#25AD35]">Up</span>
-          </div>
-        </div>
-
-        {/* Right side - Sign Form */}
-        <div className="w-full md:w-1/2 flex-col flex justify-center items-center bg-black">
-          <h2 className="text-white text-3xl mb-6">Sign Up</h2>
-
-          <div className="w-full max-w-md p-8 bg-gray-900 rounded-xl">
-            <form className="flex flex-col space-y-6">
-              {/* Name Input */}
-              <input
-                type="email"
-                placeholder="Name"
-                className="w-full p-4 bg-transparent border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:border-[#25AD35] outline-none"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-
-              {/* Email Input */}
-              <input
-                type="email"
-                placeholder="Email"
-                className="w-full p-4 bg-transparent border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:border-[#25AD35] outline-none"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-
-              {/* Password Input */}
-              <input
-                type="password"
-                placeholder="Password"
-                className="w-full p-4 bg-transparent border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:border-[#25AD35] outline-none"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-
-              <button
-                type="submit"
-                className="w-full p-3 bg-[#25AD35] text-black rounded-lg font-semibold"
-              >
-                Sign Up
-              </button>
-
-              <button
-                className=" font-normal  flex items-center justify-center bg-white p-1 mt-4 rounded-md text-black text-x "
-                type="button"
-              >
-                <img src={google} className=" w-[30px]" alt="" />
-                <span className=" text-gray-600 font-light">Google</span>
-              </button>
-
-              <p className="text-gray-400 text-center">
-                Already have an account?{" "}
-                <span
-                  onClick={() => navigate("/login")}
-                  className="font-semibold text-[#25AD35] cursor-pointer"
-                >
-                  Login
-                </span>
-              </p>
-            </form>
-          </div>
-        </div>
-      </div>
     </>
   );
 };
-export default SignUp;
+
+export default Hero;

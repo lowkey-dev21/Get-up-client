@@ -16,20 +16,19 @@ const Login = () => {
 
   return (
     <>
-      {/* mobile */}
-      <section className={`md:hidden w-full flex`}>
+      {/* Mobile View */}
+      <section className={`md:hidden flex flex-col w-full h-screen`}>
         {/* Image Background */}
         <img
           src={loginImg}
           alt="cardio workout"
-          className="fixed h-screen w-full object-cover inset-0 md:mt-[7rem] md:ml-[-6rem] mix-blend-darken z-[1] transition-transform duration-1000 ease-in-out transform translate-x-0"
+          className="fixed h-full w-full object-cover inset-0 mix-blend-darken z-0"
         />
 
-        {/* logo / Text Section */}
-        <section className="w-full md:px-[5rem] px-[20px] z-[10] flex-col flex p-2 relative">
-          {/* logo */}
+        {/* Logo / Text Section */}
+        <section className="relative flex flex-col justify-center items-center w-full px-4 z-10">
           <div
-            className={`absolute top-10 left-5 z-10 text-white text-4xl font-semibold transition-opacity duration-500 ease-in-out ${
+            className={`absolute top-10 left-5 text-white text-4xl font-semibold transition-opacity duration-500 ease-in-out ${
               showForm ? "opacity-100 animate-fadeIn" : "opacity-0"
             }`}
           >
@@ -37,28 +36,28 @@ const Login = () => {
             <span className="text-[#25AD35]">Up</span>
           </div>
 
-          <p className="text-2xl mt-[14rem] mb-5">Login</p>
+          <p className="text-2xl mt-16 mb-5">Login</p>
 
-          {/* Login form */}
+          {/* Login Form */}
           <form
-            className={`flex flex-col p-[30px] backdrop-blur-[5px] border bg-[#0000004c] w-full rounded-lg transition-opacity duration-700 ease-in-out ${
+            className={`flex flex-col p-4 backdrop-blur-md bg-[#0000004c] w-full rounded-lg transition-opacity duration-700 ease-in-out ${
               showForm ? "opacity-100 animate-fadeIn" : "opacity-0"
             }`}
           >
-            <label className="text-white text-[18px] font-semibold">
+            <label className="text-white text-lg font-semibold">
               Welcome Back
             </label>
 
             <input
-              className="w-full bg-transparent mt-3 focus:border-[#25AD35] placeholder:text-gray-500 outline-none border-[1px] p-3 rounded-lg"
+              className="w-full bg-transparent mt-3 focus:border-[#25AD35] placeholder:text-gray-500 outline-none border p-3 rounded-lg"
               type="email"
-              placeholder=" Email"
+              placeholder="Email"
               onChange={(e) => setEmail(e.target.value)}
               value={email}
             />
 
             <input
-              className="w-full bg-transparent mt-6 focus:border-[#25AD35] placeholder:text-gray-500 outline-none border-[1px] p-3 rounded-lg"
+              className="w-full bg-transparent mt-6 focus:border-[#25AD35] placeholder:text-gray-500 outline-none border p-3 rounded-lg"
               type="password"
               placeholder="Password"
               onChange={(e) => setPassword(e.target.value)}
@@ -76,7 +75,7 @@ const Login = () => {
               Login
             </button>
 
-            <p className="text-x text-center mt-6">
+            <p className="text-sm text-center mt-6">
               Don't have an account?{" "}
               <span
                 onClick={() => navigate("/sign-up")}
@@ -89,18 +88,17 @@ const Login = () => {
         </section>
       </section>
 
-      {/* Desktop */}
-      <div className="sm:flex hidden flex-col bg-[#25AD35] md:flex-row h-screen w-full">
-        {/* Left side - Image and Branding */}
-        <div className="hidden md:flex w-1/2 relative transition-transform ">
+      {/* Desktop View */}
+      <div className="hidden md:flex flex-col md:flex-row h-screen w-full">
+        {/* Left Side - Image and Branding */}
+        <div className="flex md:w-1/2 relative">
           <img
             src={loginImg}
             alt="Workout"
-            className="object-cover   w-full h-full mix-blend-darken  transition-transform duration-1000 ease-in-out transform translate-x-0"
+            className="object-cover w-full h-full mix-blend-darken"
           />
-
           <div
-            className={`absolute top-10 left-10 z-10 text-white text-4xl font-semibold transition-opacity duration-500 ease-in-out ${
+            className={`absolute top-10 left-10 text-white text-4xl font-semibold transition-opacity duration-500 ease-in-out ${
               showForm ? "opacity-100 animate-fadeIn" : "opacity-0"
             }`}
           >
@@ -109,11 +107,11 @@ const Login = () => {
           </div>
         </div>
 
-        {/* Right side - Login Form */}
-        <div className="w-full md:w-1/2 flex-col flex justify-center items-center bg-black transition-transform duration-1000 ease-in-out transform translate-x-0">
+        {/* Right Side - Login Form */}
+        <div className="flex flex-col justify-center items-center md:w-1/2 bg-black p-8">
           <h2 className="text-white text-3xl mb-6">Login</h2>
           <div
-            className={`w-full max-w-md p-8 bg-gray-900 rounded-xl transition-transform duration-700 ease-in-out transform scale-95 ${
+            className={`w-full max-w-md p-8 bg-gray-900 rounded-xl transition-opacity duration-700 ease-in-out ${
               showForm ? "opacity-100 animate-fadeIn" : "opacity-0"
             }`}
           >

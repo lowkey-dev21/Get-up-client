@@ -26,7 +26,7 @@ const Login = () => {
         />
 
         {/* Logo / Text Section */}
-        <section className="relative flex flex-col justify-center items-center w-full px-4 z-10">
+        <section className="relative flex flex-col justify-center items-cente w-full px-4  z-10">
           <div
             className={`absolute top-10 left-5 text-white text-4xl font-semibold transition-opacity duration-500 ease-in-out ${
               showForm ? "opacity-100 animate-fadeIn" : "opacity-0"
@@ -36,11 +36,11 @@ const Login = () => {
             <span className="text-[#25AD35]">Up</span>
           </div>
 
-          <p className="text-2xl mt-16 mb-5">Login</p>
+          <p className="text-2xl mt-[20rem]  mb-5">Login</p>
 
           {/* Login Form */}
           <form
-            className={`flex flex-col p-4 backdrop-blur-md bg-[#0000004c] w-full rounded-lg transition-opacity duration-700 ease-in-out ${
+            className={`flex flex-col p-6 border border-[#25AD35] backdrop-blur-md bg-[#0000004c] w-full rounded-lg transition-opacity duration-700 ease-in-out ${
               showForm ? "opacity-100 animate-fadeIn" : "opacity-0"
             }`}
           >
@@ -49,7 +49,7 @@ const Login = () => {
             </label>
 
             <input
-              className="w-full bg-transparent mt-3 focus:border-[#25AD35] placeholder:text-gray-500 outline-none border p-3 rounded-lg"
+              className="w-full bg-transparent mt-3 border-[#25AD35] placeholder:text-gray-500 outline-none border p-3 rounded-lg"
               type="email"
               placeholder="Email"
               onChange={(e) => setEmail(e.target.value)}
@@ -57,7 +57,7 @@ const Login = () => {
             />
 
             <input
-              className="w-full bg-transparent mt-6 focus:border-[#25AD35] placeholder:text-gray-500 outline-none border p-3 rounded-lg"
+              className="w-full bg-transparent mt-6 border-[#25AD35] placeholder:text-gray-500 outline-none border p-3 rounded-lg"
               type="password"
               placeholder="Password"
               onChange={(e) => setPassword(e.target.value)}

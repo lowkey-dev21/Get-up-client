@@ -38,16 +38,16 @@ const SignUp = () => {
             <span className="text-[#25AD35]">Up</span>
           </div>
 
-          <p className="text-2xl mt-[12rem] mb-5">Sign Up</p>
+          <p className="text-2xl mt-[16rem] mb-5">Sign Up</p>
 
           {/* Sign Up form */}
           <form
-            className={`flex flex-col p-6 backdrop-blur-[5px] border bg-[#0000004c] w-full rounded-lg transition-opacity duration-700 ease-in-out ${
+            className={`flex flex-col p-6 backdrop-blur-[5px] border border-[#25AD35] bg-[#0000004c] w-full rounded-lg transition-opacity duration-700 ease-in-out ${
               showForm ? "opacity-100 animate-fadeIn" : "opacity-0"
             }`}
           >
             <input
-              className="w-full bg-transparent mt-3 focus:border-[#25AD35] placeholder:text-gray-500 outline-none border-[1px] p-3 rounded-lg"
+              className="w-full bg-transparent mt-3 border-[#25AD35] placeholder:text-gray-500 outline-none border-[1px] p-3 rounded-lg"
               type="text"
               placeholder="Name"
               onChange={(e) => setName(e.target.value)}
@@ -55,7 +55,7 @@ const SignUp = () => {
             />
 
             <input
-              className="w-full bg-transparent mt-6 focus:border-[#25AD35] placeholder:text-gray-500 outline-none border-[1px] p-3 rounded-lg"
+              className="w-full bg-transparent mt-6 border-[#25AD35] placeholder:text-gray-500 outline-none border-[1px] p-3 rounded-lg"
               type="email"
               placeholder="Email"
               onChange={(e) => setEmail(e.target.value)}
@@ -63,7 +63,7 @@ const SignUp = () => {
             />
 
             <input
-              className="w-full bg-transparent mt-6 focus:border-[#25AD35] placeholder:text-gray-500 outline-none border-[1px] p-3 rounded-lg"
+              className="w-full bg-transparent mt-6 border-[#25AD35] placeholder:text-gray-500 outline-none border-[1px] p-3 rounded-lg"
               type="password"
               placeholder="Password"
               onChange={(e) => setPassword(e.target.value)}
@@ -118,7 +118,7 @@ const SignUp = () => {
         </div>
 
         {/* Right side - Sign Up Form */}
-        <div className="w-full md:w-1/2 flex-col flex justify-center items-center bg-black">
+        <div className="w-full md:w-1/2 flex-col  flex justify-center items-center bg-black">
           <h2 className="text-white text-3xl mb-6">Sign Up</h2>
 
           <div

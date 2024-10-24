@@ -1,42 +1,56 @@
 import { loginImg } from "../../assets";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const [showForm, setShowForm] = useState(false); // State to control form visibility
+
+  useEffect(() => {
+    // Set a timeout to show the form after the component mounts
+    const timer = setTimeout(() => setShowForm(true), 100); // Adjust timing as necessary
+    return () => clearTimeout(timer); // Cleanup on unmount
+  }, []);
 
   return (
     <>
       {/* mobile */}
-      <section className={` md:hidden w-full flex `}>
+      <section className={`md:hidden w-full flex`}>
         {/* Image Background */}
         <img
           src={loginImg}
           alt="cardio workout"
-          className="fixed h-screen w-full object-cover inset-0 md:mt-[7rem] md:ml-[-6rem] mix-blend-darken z-[1]"
+          className="fixed h-screen w-full object-cover inset-0 md:mt-[7rem] md:ml-[-6rem] mix-blend-darken z-[1] transition-transform duration-1000 ease-in-out transform translate-x-0"
         />
 
         {/* logo / Text Section */}
         <section className="w-full md:px-[5rem] px-[20px] z-[10] flex-col flex p-2 relative">
           {/* logo */}
-          <p className="text-3xl font-semibold mt-4">
+          <div
+            className={`absolute top-10 left-5 z-10 text-white text-4xl font-semibold transition-opacity duration-500 ease-in-out ${
+              showForm ? "opacity-100 animate-fadeIn" : "opacity-0"
+            }`}
+          >
             <span>Get </span>
-            <span className=" text-[#25AD35]">Up</span>
-          </p>
+            <span className="text-[#25AD35]">Up</span>
+          </div>
 
-          <p className="text-2xl mt-[14rem] mb-5 ">Login</p>
+          <p className="text-2xl mt-[14rem] mb-5">Login</p>
 
           {/* Login form */}
-          <form className="flex flex-col p-[30px] backdrop-blur-[5px] border   bg-[#0000004c] w-full rounded-lg">
-            <label className="text-white text-[18px]  font-semibold ">
+          <form
+            className={`flex flex-col p-[30px] backdrop-blur-[5px] border bg-[#0000004c] w-full rounded-lg transition-opacity duration-700 ease-in-out ${
+              showForm ? "opacity-100 animate-fadeIn" : "opacity-0"
+            }`}
+          >
+            <label className="text-white text-[18px] font-semibold">
               Welcome Back
             </label>
-            {/* Add form elements */}
 
             <input
-              className=" w-full bg-transparent mt-3 focus:border-[#25AD35] placeholder:text-gray-500 outline-none  border-[1px] p-3 rounded-lg "
+              className="w-full bg-transparent mt-3 focus:border-[#25AD35] placeholder:text-gray-500 outline-none border-[1px] p-3 rounded-lg"
               type="email"
               placeholder=" Email"
               onChange={(e) => setEmail(e.target.value)}
@@ -44,29 +58,29 @@ const Login = () => {
             />
 
             <input
-              className=" w-full bg-transparent mt-6 focus:border-[#25AD35] placeholder:text-gray-500 outline-none  border-[1px] p-3 rounded-lg "
-              type="email"
-              placeholder=" Password"
+              className="w-full bg-transparent mt-6 focus:border-[#25AD35] placeholder:text-gray-500 outline-none border-[1px] p-3 rounded-lg"
+              type="password"
+              placeholder="Password"
               onChange={(e) => setPassword(e.target.value)}
               value={password}
             />
 
-            <div className=" flex justify-end w-full mt-2 ">
-              <p className=" text-xs">Forgot Password?</p>
+            <div className="flex justify-end w-full mt-2">
+              <p className="text-xs">Forgot Password?</p>
             </div>
 
             <button
-              className=" bg-[#25AD35] p-2 mt-8 rounded-md text-black text-xl "
+              className="bg-[#25AD35] p-2 mt-8 rounded-md text-black text-xl"
               type="submit"
             >
               Login
             </button>
 
-            <p className=" text-xs text-center mt-6">
+            <p className="text-x text-center mt-6">
               Don't have an account?{" "}
               <span
                 onClick={() => navigate("/sign-up")}
-                className=" font-semibold"
+                className="font-semibold text-[#25AD35]"
               >
                 Sign Up!
               </span>
@@ -74,7 +88,84 @@ const Login = () => {
           </form>
         </section>
       </section>
+
+      {/* Desktop */}
+      <div className="sm:flex hidden flex-col bg-[#25AD35] md:flex-row h-screen w-full">
+        {/* Left side - Image and Branding */}
+        <div className="hidden md:flex w-1/2 relative transition-transform ">
+          <img
+            src={loginImg}
+            alt="Workout"
+            className="object-cover   w-full h-full mix-blend-darken  transition-transform duration-1000 ease-in-out transform translate-x-0"
+          />
+
+          <div
+            className={`absolute top-10 left-10 z-10 text-white text-4xl font-semibold transition-opacity duration-500 ease-in-out ${
+              showForm ? "opacity-100 animate-fadeIn" : "opacity-0"
+            }`}
+          >
+            <span>Get </span>
+            <span className="text-[#25AD35]">Up</span>
+          </div>
+        </div>
+
+        {/* Right side - Login Form */}
+        <div className="w-full md:w-1/2 flex-col flex justify-center items-center bg-black transition-transform duration-1000 ease-in-out transform translate-x-0">
+          <h2 className="text-white text-3xl mb-6">Login</h2>
+          <div
+            className={`w-full max-w-md p-8 bg-gray-900 rounded-xl transition-transform duration-700 ease-in-out transform scale-95 ${
+              showForm ? "opacity-100 animate-fadeIn" : "opacity-0"
+            }`}
+          >
+            <h2 className="text-white text-3xl font-semibold mb-6">
+              Welcome Back
+            </h2>
+
+            <form className="flex flex-col space-y-6">
+              {/* Email Input */}
+              <input
+                type="email"
+                placeholder="Email"
+                className="w-full p-4 bg-transparent border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:border-[#25AD35] outline-none"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+
+              {/* Password Input */}
+              <input
+                type="password"
+                placeholder="Password"
+                className="w-full p-4 bg-transparent border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:border-[#25AD35] outline-none"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+
+              <div className="flex justify-between text-sm text-gray-400">
+                <p>Forgot Password?</p>
+              </div>
+
+              <button
+                type="submit"
+                className="w-full p-3 bg-[#25AD35] text-black rounded-lg font-semibold"
+              >
+                Login
+              </button>
+
+              <p className="text-gray-400 text-center">
+                Don't have an account?{" "}
+                <span
+                  onClick={() => navigate("/sign-up")}
+                  className="font-semibold text-[#25AD35] cursor-pointer"
+                >
+                  Sign up!
+                </span>
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
     </>
   );
 };
+
 export default Login;

@@ -11,6 +11,7 @@ import {
 } from "../assets";
 import Footer from "./Footer";
 import Trainers from "./Trainers";
+import { useNavigate } from "react-router-dom";
 
 interface Exercise {
   title: string;
@@ -45,14 +46,15 @@ const exercises: Exercise[] = [
 ];
 
 const Hero = () => {
+  const navigate = useNavigate()
   return (
     <>
       <section
         className={`h-64  w-full bg-gradient-to-r from-[#25AD35] to-[#25AD35]`}
       >
-        <div className="inset-0 md:px-[5rem] px-[20px] mt-[-1rem] flex p-2">
+        <div id="home" className="inset-0 md:px-[5rem] px-[20px] mt-[-1rem] flex p-2">
           {/* Update badge */}
-          <div className="flex h-[40px] p-1 pl-1.5 pr-5 bg-[#2827274a] backdrop-opacity-30 items-center justify-center gap-2 rounded-full">
+          <div   className="flex h-[40px] p-1 pl-1.5 pr-5 bg-[#2827274a] backdrop-opacity-30 items-center justify-center gap-2 rounded-full">
             <span className="bg-white text-black p-1 md:px-2 text-[12px] rounded-full ">
               NEW
             </span>
@@ -88,7 +90,7 @@ const Hero = () => {
           </div>
 
           <div className="mt-5 md:mt-[4rem] md:text-xl z-[500] text-[13px] flex md:w-[30%] w-full gap-[3rem]">
-            <button className="bg-white rounded-lg text-black p-4 md:p-5 w-full">
+            <button onClick={()=> navigate("/sign-up")} className="bg-white rounded-lg text-black p-4 md:p-5 w-full">
               Get Started
             </button>
             <button className="z-[9000] bg-black rounded-lg text-white md:p-5  p-2 w-full">
@@ -112,7 +114,10 @@ const Hero = () => {
         />
 
         {/* Popular exercise */}
-        <div className=" md:px-[5rem] px-[20px]  relative md:mt-[43rem] mt-[23.5rem] bg-[#2827274a] backdrop-opacity-30 w-full h-[2070px] md:h-[800px]   ">
+        <div
+          id="exercises"
+          className=" md:px-[5rem] px-[20px]  relative md:mt-[43rem] mt-[23.5rem] bg-[#2827274a] backdrop-opacity-30 w-full h-[2070px] md:h-[800px]   "
+        >
           <nav className=" w-full pt-4 justify-between items-center flex  ">
             <p className=" md:text-[29px] text-[17px]">Popular Exercises</p>
             <button className=" text-[#FFFFFF] bg-black p-5 text-[15px] md:flex hidden">
@@ -147,19 +152,23 @@ const Hero = () => {
         </div>
 
         {/* Transform */}
-        <div className=" md:px-[5rem]    w-full flex flex-col md:flex md:h-[400px] h-[600px] justify-center md:justify-between md:flex-row  items-center ">
-          <div className=" flex-col  justify-center   px-[20px] md:w-[50%] flex h-[400px] items-center  ">
-            <p className=" text-5xl z-[2] md:text-[450%] md:leading-[90%] font-semibold  ">
+        <div
+          id="plans"
+          className=" md:px-[5rem]    w-full flex flex-col md:flex md:h-[400px] h-[600px] justify-center md:justify-between md:flex-row  items-center "
+        >
+          <div className=" flex-col  justify-center   px-[20px] md:w-[40%] flex h-[400px] items-center  ">
+            <p className=" text-5xl z-[2] md:text-[450%] md:leading-[100%] font-semibold  ">
               Get your plan and get started
             </p>
             <img className=" mt-[-4rem]" src={getyour} alt="" />
           </div>
 
-          <div className=" bg-[#ffffff4c] w-full md:w-[50%] flex items-center flex-col justify-center backdrop-opacity-30 md:h-[300px] h-[400px] ">
+          <div className=" bg-[#ffffff4c] w-full md:w-[40%] flex items-center flex-col justify-center backdrop-opacity-30 md:h-[300px] h-[400px] ">
             <p className=" md:px-[5rem] px-[20px] md:text-2xl font-light text-black  ">
               Transform your fitness journey with our app! Personalized
               workouts, real-time tracking, and expert guidance—all in one
               place. Join our community and start getting stronger today!
+              <br />
               <button className=" bg-black text-white p-2 px-5 rounded-md mt-5">
                 Let's start
               </button>
@@ -168,7 +177,7 @@ const Hero = () => {
         </div>
 
         {/* Trainers */}
-        <section className=" md:px-[5rem] px-[20px] bg-black  ">
+        <section id="trainers" className=" md:px-[5rem] px-[20px] bg-black  ">
           <p className=" text-center pt-4 text-2xl font-semibold"> Trainers</p>
           <Trainers />
         </section>

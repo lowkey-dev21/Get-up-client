@@ -36,7 +36,7 @@ const Login = () => {
             <span className="text-[#25AD35]">Up</span>
           </div>
 
-          <p className="text-2xl mt-[20rem]  mb-5">Login</p>
+          <p className="text-2xl mt-[16rem]  mb-5">Login</p>
 
           {/* Login Form */}
           <form

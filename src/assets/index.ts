@@ -10,3 +10,6 @@ export { default as trainer1 } from "../assets/trainer1.png";
 export { default as trainer2 } from "../assets/trainer2.png";
 export { default as trainer3 } from "../assets/trainer3.png";
 export { default as lastImg } from "../assets/lastImg.jpeg";
+export { default as loginImg } from "../assets/loginImg.png";
+export { default as signUp } from "../assets/signUp.png";
+export { default as google } from "../assets/google.png";
